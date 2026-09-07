@@ -214,6 +214,9 @@ class AsyncioInstrumentor(BaseInstrumentor):
             wrap_taskgroup_create_task,
         )
 
+    def trace_to_thread(self, func: callable):
+        return self.wrap_to_thread_func(func)
+
     def wrap_to_thread_func(self, func: callable):
         """
         Wrap a function so that its execution in the worker thread is
